@@ -6,12 +6,13 @@ const getItems = async() => {
   return rows;
 };
 
-const setItem = async(name, price, imageUrl) => {
+const createItem = async(name, price, imageUrl) => {
   const dbConnection = await db.getConnection();
-  return await dbConnection.query('INSERT INTO `items` (`name`, `price`, `image_url`) VALUES (?, ?, ?)', [name, price, imageUrl]);
+  const [result] = await dbConnection.query('INSERT INTO `items` (`name`, `price`, `imageUrl`) VALUES (?, ?, ?)', [name, price, imageUrl]);
+  return result;
 };
 
 module.exports = {
   getItems,
-  setItem,
+  createItem,
 };

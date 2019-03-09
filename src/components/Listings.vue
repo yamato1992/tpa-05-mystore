@@ -3,7 +3,7 @@
     <h1>My Store</h1>
     <div class="item-list">
       <div class="item" v-for="item in items" :key="item.id">
-        <img class="item-image" :src="item.image_url" :alt="item.id">
+        <img class="item-image" :src="item.imageUrl" :alt="'item image'">
         <p>{{ item.name }}</p>
         <p>{{ `¥ ${item.price}` }}</p>
       </div>
