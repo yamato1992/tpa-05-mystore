@@ -12,19 +12,3 @@ module.exports = {
     return connection;
   },
 };
-
-/**
-
-sample query using this mysql connection:
-
-const db = require('./db/connection');
-
-db.getConnection()
-  .then(dbConnection => {
-    return dbConnection.query('select * from items');
-  })
-  .then(([rows]) => {
-    console.log(rows); // log each row selected
-  });
-
-*/
