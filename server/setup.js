@@ -1,4 +1,4 @@
-const api = require('./api-service');
+const api = require('./controller');
 
 const setup = function(app) {
   app.get('/api/items', (req, res) => {
