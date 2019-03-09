@@ -1,4 +1,4 @@
-const api = require('./api-service');
+const api = require('./controller');
 
 const setup = function(app) {
   app.get('/api/items', (req, res) => {
@@ -10,11 +10,9 @@ const setup = function(app) {
   });
 
   app.post('/api/items', (req, res) => {
-    const { name, price, imageUrl } = req.query;
-    api.setItem(name, price, imageUrl)
-      .then(() => {
-        res.status(200).json();
-      })
+    const { name, price, imageUrl } = req.body;
+    api.createItem(name, price, imageUrl)
+      .then((data) => res.json(data))
       .catch((err) => {
         res.status(400).json({ err: 'Error posting item data'});
       });
