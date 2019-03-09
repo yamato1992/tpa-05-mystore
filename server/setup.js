@@ -1,9 +1,7 @@
-const db = require('./db/connection');
+const { getItems } = require('./controller');
 
 const setup = function(app) {
-  // --
-  // TODO: add server-side routes here
-  // --
+  app.get('/api/items', getItems);
 };
 
 module.exports = setup;
