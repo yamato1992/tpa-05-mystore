@@ -1,11 +1,12 @@
 const db = require('./db/connection');
 
-const getItems = async(req, res) => {
+const getItems = async() => {
     const dbConnection = await db.getConnection();
     const [rows] = await dbConnection.query('select * from items');
-    return res.json(rows);
+    return rows;
 };
 
 module.exports = {
     getItems,
+    setItem,
 }
